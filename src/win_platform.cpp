@@ -5,13 +5,13 @@ constexpr const auto WIN_TITLE = TEXT("Rendered Window");
 constexpr int INIT_WIDTH = 640;
 constexpr int INIT_HEIGHT = 480;
 
-typedef struct WindowState_ {
+struct WindowState {
 	HDC mem_dc;
 	void* pixel_buf;
 	HBITMAP dib;
 	LONG width;
 	LONG height;
-} WindowState;
+};
 
 static void registerWindowClass(WNDPROC win_proc_func, HINSTANCE h_instance) {
 	WNDCLASS wc = {};
