@@ -1,4 +1,8 @@
+#include <cstdint>
+
 #include <windows.h>
+
+#include "rasterizer.h"
 
 constexpr const auto WC_NAME = TEXT("rendered_window");
 constexpr const auto WIN_TITLE = TEXT("Rendered Window");
@@ -68,6 +72,11 @@ static void fillBlue(void* buf, int width, int height) {
 
 static void update(void* buf, int width, int height) {
 	fillBlue(buf, width, height);
+	Triangle triangle;
+	triangle.v0 = {-50, 100 };
+	triangle.v1 = { 200, 100 };
+	triangle.v2 = { 150, 300 };
+	rasterize({ static_cast<uint32_t*>(buf), width, height }, triangle);
 }
 
 static void draw(HWND hwnd, HDC mem_dc, int width, int height) {
