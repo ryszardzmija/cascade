@@ -21,7 +21,7 @@ struct RasterizerInput {
 struct FragmentBufferInfo {
 	void* buffer;
 	uint32_t size_bytes;
-	void (*flush)(void* buffer, uint32_t fragment_count);
+	void (*flush)(void* buffer, uint32_t used_bytes);
 };
 
 void rasterize(const RasterizerInput& input, const FragmentBufferInfo& fbi);
