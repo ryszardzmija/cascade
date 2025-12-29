@@ -3,23 +3,28 @@
 
 #include <cstdint>
 
-struct Vec2 {
-	float x;
-	float y;
+#include "vec2.h"
+
+struct ViewportBounds {
+	Vec2<int32_t> top_left;
+	Vec2<int32_t> bottom_right;
 };
 
-struct Triangle {
-	Vec2 v0;
-	Vec2 v1;
-	Vec2 v2;
+struct RasterizerInput {
+	const float* vertex_data;
+	const uint32_t* indices;
+	uint32_t index_count;
+	uint32_t stride_bytes;
+	ViewportBounds bounds;
 };
 
-struct FramebufferInfo {
-	uint32_t* buf;
-	int width;
-	int height;
+struct FragmentBufferInfo {
+	void* buffer;
+	uint32_t size_bytes;
+	void (*flush)(const void* buffer, uint32_t used_bytes, const void* context);
+	void* context;
 };
 
-void rasterize(const FramebufferInfo& buffer_info, const Triangle& triangle);
+void rasterize(const RasterizerInput& input, const FragmentBufferInfo& fbi);
 
 #endif
