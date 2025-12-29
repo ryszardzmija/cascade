@@ -1,8 +1,10 @@
 #include <cstdint>
+#include <cstdlib>
 
 #include <windows.h>
 
 #include "rasterizer.h"
+#include "fragment_ops.h"
 
 constexpr const auto WC_NAME = TEXT("rendered_window");
 constexpr const auto WIN_TITLE = TEXT("Rendered Window");
@@ -63,20 +65,33 @@ void createPixelBuffer(LONG width, LONG height, WindowState* win_state) {
 	win_state->height = height;
 }
 
-static void fillBlue(void* buf, int width, int height) {
-	UINT32* pixels =  static_cast<UINT32*>(buf);
-	for (int i = 0; i < width * height; ++i) {
-		pixels[i] = 0x000000FF;
-	}
-}
-
 static void update(void* buf, int width, int height) {
-	fillBlue(buf, width, height);
-	Triangle triangle;
-	triangle.v0 = {-50, 100 };
-	triangle.v1 = { 200, 100 };
-	triangle.v2 = { 150, 300 };
-	rasterize({ static_cast<uint32_t*>(buf), width, height }, triangle);
+	float vertex_data[] = { 50.0f, 200.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f,  // vertex 0 (50, 200, 1, 1) RED
+						   100.0f, 200.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,  // vertex 1 (100, 200, 1, 1) BLUE
+						   75.0f, 100.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,  // vertex 2 (75, 100, 1, 1) GREEN
+						   300.0f, 300.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f,  // vertex 3 (300, 300, 1, 1) RED
+						   300.0f, 100.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f,  // vertex 4 (300, 100, 1, 1) RED
+						   500.0f, 200.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f };  // vertex 5 (500, 200, 1, 1) BLUE
+	uint32_t indices[] = { 0, 2, 1, 3, 4, 5 };  // Make sure the vertices are in clockwise winding order
+	uint32_t index_count = 6;
+	uint32_t stride_bytes = 8 * sizeof(float);
+	ViewportBounds bounds = { {0, 0}, {width - 1, height - 1} };
+	RasterizerInput input = { vertex_data, indices, index_count, stride_bytes, bounds };
+
+	constexpr uint32_t FRAG_BUF_SIZE = 1024;
+	void* fragment_buffer = std::malloc(FRAG_BUF_SIZE);
+	if (!fragment_buffer) {
+		abort();
+	}
+
+	uint32_t fragment_stride_bytes = 2 * sizeof(uint32_t) + 5 * sizeof(float);
+	OutputContext context = { buf, fragment_stride_bytes, width };
+	
+	FragmentBufferInfo fbi = { fragment_buffer, FRAG_BUF_SIZE, processFragmentsWithoutDepth, &context };
+
+	rasterize(input, fbi);
+
+	std::free(fragment_buffer);
 }
 
 static void draw(HWND hwnd, HDC mem_dc, int width, int height) {
