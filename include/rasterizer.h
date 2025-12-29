@@ -11,8 +11,8 @@ struct ViewportBounds {
 };
 
 struct RasterizerInput {
-	float* vertex_data;
-	uint32_t* indices;
+	const float* vertex_data;
+	const uint32_t* indices;
 	uint32_t index_count;
 	uint32_t stride_bytes;
 	ViewportBounds bounds;
@@ -21,7 +21,8 @@ struct RasterizerInput {
 struct FragmentBufferInfo {
 	void* buffer;
 	uint32_t size_bytes;
-	void (*flush)(void* buffer, uint32_t used_bytes);
+	void (*flush)(const void* buffer, uint32_t used_bytes, const void* context);
+	void* context;
 };
 
 void rasterize(const RasterizerInput& input, const FragmentBufferInfo& fbi);
