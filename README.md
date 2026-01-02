@@ -22,3 +22,12 @@ Understanding how these work in a CPU implementation - where each step can be ex
 - ⏳ Clipping
 - ⏳ Depth buffering
 - ⏳ Texturing
+
+## Examples
+
+### Triangle Rasterization
+
+![TriangleDemo](https://github.com/user-attachments/assets/fc2c3dcc-42b7-4f67-b899-b54e2119905c)
+*Two triangles with perspective-correct color interpolation*
+
+More examples coming as features are implemented...
