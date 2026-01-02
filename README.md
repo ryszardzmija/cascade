@@ -27,7 +27,8 @@ Understanding how these work in a CPU implementation - where each step can be ex
 
 ### Triangle Rasterization
 
-![TriangleDemo](https://github.com/user-attachments/assets/fc2c3dcc-42b7-4f67-b899-b54e2119905c)
+![TriangleDemo](https://github.com/user-attachments/assets/6b5de05c-d36b-4606-b252-11462de97d28)
+
 *Two triangles with perspective-correct color interpolation*
 
 More examples coming as features are implemented...
