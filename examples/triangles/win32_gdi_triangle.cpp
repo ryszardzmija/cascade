@@ -3,8 +3,8 @@
 
 #include <windows.h>
 
-#include "rasterizer.h"
-#include "fragment_ops.h"
+#include "rasterizer/rasterizer.h"
+#include "fragment_ops/fragment_ops.h"
 
 constexpr const auto WC_NAME = TEXT("rendered_window");
 constexpr const auto WIN_TITLE = TEXT("Rendered Window");

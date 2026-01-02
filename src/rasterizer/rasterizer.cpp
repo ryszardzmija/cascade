@@ -5,8 +5,8 @@
 #include <cstdlib>
 #include <cassert>
 
-#include "vec2.h"
-#include "ptr_utils.h"
+#include "common/ptr_utils.h"
+#include "common/vec2.h"
 
 constexpr uint32_t VERTEX_COORD_SIZE = 4 * sizeof(float);  // (x, y, z, w)
 constexpr uint32_t FRAGMENT_COORD_SIZE = 2 * sizeof(uint32_t) + sizeof(float);  // (x, y, z)

@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-#include "vec2.h"
+#include "common/vec2.h"
 
 struct ViewportBounds {
 	Vec2<int32_t> top_left;

@@ -1,7 +1,7 @@
 #ifndef COMMAND_BUFFERS_H_
 #define COMMAND_BUFFERS_H_
 
-namespace sr {
+namespace cascade {
 
 struct CmdBuffer_T;
 

@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "ptr_utils.h"
+#include "common/ptr_utils.h"
 
 constexpr uint32_t FRAGMENT_COORD_SIZE = 2 * sizeof(uint32_t) + sizeof(float);
 
