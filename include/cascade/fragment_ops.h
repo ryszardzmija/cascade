@@ -1,5 +1,5 @@
-#ifndef FRAGMENT_OPS_H_
-#define FRAGMENT_OPS_H_
+#ifndef CASCADE_FRAGMENT_OPS_H_
+#define CASCADE_FRAGMENT_OPS_H_
 
 #include <cstdint>
 

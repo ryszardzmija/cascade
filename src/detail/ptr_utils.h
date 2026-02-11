@@ -1,5 +1,5 @@
-#ifndef PTR_UTILS_H_
-#define PTR_UTILS_H_
+#ifndef CASCADE_PTR_UTILS_H_
+#define CASCADE_PTR_UTILS_H_
 
 #include <cstdint>
 

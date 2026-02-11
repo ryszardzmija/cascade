@@ -1,5 +1,5 @@
-#ifndef RASTERIZER_H_
-#define RASTERIZER_H_
+#ifndef CASCADE_RASTERIZER_H_
+#define CASCADE_RASTERIZER_H_
 
 #include <cstdint>
 

@@ -1,5 +1,5 @@
-#ifndef VEC2_H_
-#define VEC2_H_
+#ifndef CASCADE_VEC2_H_
+#define CASCADE_VEC2_H_
 
 template <typename T>
 struct Vec2 {
