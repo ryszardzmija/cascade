@@ -2,6 +2,9 @@
 .vs/
 .vscode/
 
+# MacOS
+.DS_Store
+
 # CMake
 build/
 
@@ -10,3 +13,9 @@ compile_commands.json
 
 # clangd cache
 .cache/
+
+# output dir for image examples
+out_images/
+
+# image outputs
+*.ppm
