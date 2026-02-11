@@ -12,16 +12,35 @@ Understanding how these work in a CPU implementation - where each step can be ex
 
 ## Current Status
 
-🚧 **In Active Development**
+**Implemented:**
 
-- ✅ Triangle rasterization (Pineda's algorithm)
-- ✅ Perspective-correct interpolation
-- ✅ Fragment processing
-- 🚧 Command buffer API
-- ⏳ Vertex transformation
-- ⏳ Clipping
-- ⏳ Depth buffering
-- ⏳ Texturing
+- Triangle rasterization (Pineda's algorithm)
+- Perspective-correct attribute interpolation
+- Fragment processing with color output
+
+**Planned**:
+
+- Depth buffering
+- Vertex transformation pipeline
+- View frustum clipping
+- Texturing
+
+## Building
+
+Requires CMake 3.20+ and a C++20 compiler.
+
+```sh
+cmake -B build
+cmake --build build
+```
+
+## Running the example
+
+```sh
+./build/examples/triangles/triangles_ppm output.ppm
+```
+
+Writes the rendered triangles into a .ppm file viewable in any image editor.
 
 ## Examples
 
@@ -30,5 +49,3 @@ Understanding how these work in a CPU implementation - where each step can be ex
 ![TriangleDemo](https://github.com/user-attachments/assets/6b5de05c-d36b-4606-b252-11462de97d28)
 
 *Two triangles with perspective-correct color interpolation*
-
-More examples coming as features are implemented...
