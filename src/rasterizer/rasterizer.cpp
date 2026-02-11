@@ -9,6 +9,8 @@
 
 #include "detail/ptr_utils.h"
 
+namespace cascade {
+
 constexpr uint32_t VERTEX_COORD_SIZE = 4 * sizeof(float);                      // (x, y, z, w)
 constexpr uint32_t FRAGMENT_COORD_SIZE = 2 * sizeof(uint32_t) + sizeof(float); // (x, y, z)
 constexpr float DEGENERATE_EPS = 1e-5f;
@@ -263,3 +265,5 @@ void rasterize(const RasterizerInput& input, const FragmentBufferInfo& fbi) {
     flush(frag_buf, used_bytes, output_context);
     std::free(A_over_w);
 }
+
+} // namespace cascade

@@ -5,6 +5,8 @@
 
 #include <cascade/common/vec2.h>
 
+namespace cascade {
+
 struct ViewportBounds {
     Vec2<int32_t> top_left;
     Vec2<int32_t> bottom_right;
@@ -26,5 +28,7 @@ struct FragmentBufferInfo {
 };
 
 void rasterize(const RasterizerInput& input, const FragmentBufferInfo& fbi);
+
+} // namespace cascade
 
 #endif

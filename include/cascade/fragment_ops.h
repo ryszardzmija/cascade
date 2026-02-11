@@ -3,6 +3,8 @@
 
 #include <cstdint>
 
+namespace cascade {
+
 struct OutputContext {
     void* color_buffer;
     uint32_t fragment_stride;
@@ -10,5 +12,7 @@ struct OutputContext {
 };
 
 void processFragmentsWithoutDepth(const void* frag_buf, uint32_t used_bytes, const void* output_context);
+
+} // namespace cascade
 
 #endif

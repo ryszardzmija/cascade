@@ -3,6 +3,8 @@
 
 #include <cstdint>
 
+namespace cascade {
+
 inline char* char_ptr(void* ptr) {
     return reinterpret_cast<char*>(ptr);
 }
@@ -34,5 +36,7 @@ inline float* float_ptr(void* ptr) {
 inline const float* float_ptr(const void* ptr) {
     return reinterpret_cast<const float*>(ptr);
 }
+
+} // namespace cascade
 
 #endif

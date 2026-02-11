@@ -4,6 +4,8 @@
 
 #include "detail/ptr_utils.h"
 
+namespace cascade {
+
 constexpr uint32_t FRAGMENT_COORD_SIZE = 2 * sizeof(uint32_t) + sizeof(float);
 
 inline static uint8_t quantizeColor(float color) {
@@ -46,3 +48,5 @@ void processFragmentsWithoutDepth(const void* frag_buf, uint32_t used_bytes, con
         *pixel_ptr = (a << 24) | (r << 16) | (g << 8) | b;
     }
 }
+
+} // namespace cascade

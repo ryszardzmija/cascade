@@ -6,6 +6,8 @@
 #include <cascade/fragment_ops.h>
 #include <cascade/rasterizer.h>
 
+using namespace cascade;
+
 constexpr const auto WC_NAME = TEXT("rendered_window");
 constexpr const auto WIN_TITLE = TEXT("Rendered Window");
 constexpr int INIT_WIDTH = 640;
