@@ -3,8 +3,8 @@
 
 template <typename T>
 struct Vec2 {
-	T x;
-	T y;
+    T x;
+    T y;
 };
 
 #endif
