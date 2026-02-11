@@ -2,17 +2,11 @@
 .vs/
 .vscode/
 
-# Solution files
-*.sln
-*.slnx
+# CMake
+build/
 
-# Project files
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
+# include paths for clangd
+compile_commands.json
 
-# Build results
-Debug/
-Release/
-x64/
-x86/
+# clangd cache
+.cache/
